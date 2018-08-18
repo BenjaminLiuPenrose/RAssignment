@@ -26,3 +26,10 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+if(!('modules' %in% unlist(strsplit(getwd(), split = '/')))) setwd('modules')
+air <- read.csv(file.path('..', 'data', 'airline.csv'), stringsAsFactors = FALSE)
+head(air)
+x = mean(air$DepDelay, na.rm=TRUE)
+```
