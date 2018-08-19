@@ -333,6 +333,12 @@ There's lots more packages/functionality for dates/times: see *lubridate* and `?
 
 1) Generate 100 random Poisson values with a population mean of 5. How close is the mean of those 100 values to the value of 5?
 
+
+```{r}
+sample_pos <- rpois(100, lambda=5)
+diff <- mean(sample_pos)-5
+```
+
 2) What is the 95th percentile of a chi-square distribution with 1 degree of freedom?
 
 3) What's the probability of getting a value greater than 5 if you draw from a standard normal distribution? What about a t distribution with 1 degree of freedom?
