@@ -263,7 +263,7 @@ ggplot(usa_gold_medals, aes(x = Year, y = count)) + geom_bar(stat = "identity")
 
 ## `ggplot2` and tidy data
 
-* `ggplot2` plays nice with `dplyr` and pipes. If you want to manipulate your data specifically for one plot but not save the new dataset, you can call your `dplyr` chain and pipe it directly into a `ggplot` call.
+* `ggplot2` plays nice with `dplyr` and pipes. If you want to manipulate your data specifically for one plot but 9 save the new dataset, you can call your `dplyr` chain and pipe it directly into a `ggplot` call.
 
 ```{r, fig.cap = "", fig.show = "hold"}
 # This combines the subsetting and plotting into one step
@@ -651,8 +651,7 @@ Feel free to explore more at [https://github.com/thomasp85/patchwork](https://gi
 
 # Exporting
 
-Two basic image types:
-
+v                                           
 ### **Raster/Bitmap** (.png, .jpeg)
 
 Every pixel of a plot contains its own separate coding; not so great if you want to resize the image
