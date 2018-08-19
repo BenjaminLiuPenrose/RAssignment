@@ -488,13 +488,42 @@ There are some other useful packages in the [tidyverse](http://www.tidyverse.org
 
 1. Use `dplyr` to create a data frame containing the median `lifeExp` for each continent
 
+```{r}
+life_exp_continent <- gapminder %>%
+  group_by(continent) %>%
+  summarise(median_life_exp = mean(lifeExp))
+life_exp_continent
+```
+
 2. Use `dplyr` to add a column to the gapminder dataset that contains the total population of the continent of each observation in a given year. For example, if the first observation is Afghanistan in 1952, the new column would contain the population of Asia in 1952.
+
+```{r}
+gapminder_with_continent_pop <- gapminder %>%
+  group_by(continent, year) %>%
+  mutate(continetPop = sum(pop))
+head(gapminder_with_continent_pop)
+```
 
 3. Use `dplyr` to add a column called `gdpPercap_diff` that contains the difference between the observation's `gdpPercap` and the mean `gdpPercap` of the continent in that year. Arrange the dataframe by the column you just created, in descending order (so that the relatively richest country/years are listed first)
 
    **hint**: You might have to `ungroup()` before you `arrange()`.
 
+```{r}
+gapminder_with_gdp_diff <- gapminder %>%
+  group_by(continent, year) %>%
+  mutate(gdpPercapDiff = gdpPercap - mean(gdpPercap)) %>%
+  ungroup() %>%
+  arrange(desc(gdpPercapDiff))
+head(gapminder_with_gdp_diff, 5)
+```
+
 ### `tidyr`
 
 4. Subset the results from question #3 to select only the `country`, `year`, and `gdpPercap_diff` columns. Use tidyr put it in wide format so that countries are rows and years are columns.
+
+```{r}
+selection <- gapminder_with_gdp_diff %>%
+  select(country, year, gdpPercapDiff)
+head(selection, 5)
+```
 
